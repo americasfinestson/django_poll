@@ -27,6 +27,11 @@ $ pip install django
 $ django-admin startproject django_poll .
 ```
 
+## Create Python virtual environment requirements file
+```
+$ pip freeze > requirements.txt
+```
+
 ## Move sensitive data out of VCS
 
 Move the sensitive variables out of ```settings.py```. To do this, start by creating a new file called ```secrets.json```, and add the following content to it.
