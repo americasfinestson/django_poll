@@ -1,5 +1,5 @@
 # django_poll
-Basic poll application, following Django's website tutorial.
+Basic poll application using Django.
 
 # Setup Instructions
 
@@ -72,3 +72,8 @@ The old ```SECRET_KEY``` line can (should) now be removed from ```settings.py```
 
 ## Exclude new secrets file from VCS
 Exclude ```secrets.json``` from VCS, whether that be via a ```.gitignore``` file, or other means.
+
+## Reference
+The following resources were used in creating this README:
+* https://www.zappycode.com/tutorials/keep-secrets-secret-how-to-hide-sensitive-data-in-django
+* https://docs.djangoproject.com/en/4.1/intro/
