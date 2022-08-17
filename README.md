@@ -27,9 +27,15 @@ $ pip install django
 $ django-admin startproject django_poll .
 ```
 
-## Create Python virtual environment requirements file
+## Create Python requirements file
+Create the Python requirements file.
 ```
 $ pip freeze > requirements.txt
+```
+
+The ```requirements.txt``` file can then be used by others to ensure they the correct Python packages installed for the project.
+```
+$ pip install -r requirements.txt
 ```
 
 ## Move sensitive data out of VCS
