@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import JSON
+import json 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-with open('secrets.json', 'r') as f:
+with open(str(BASE_DIR) + '/django_poll/secrets.json') as f:
     my_secrets = json.load(f)
     f.close()
     
