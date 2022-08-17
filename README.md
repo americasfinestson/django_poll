@@ -9,11 +9,18 @@ Basic poll application using Django.
 $ git clone git@github.com:americasfinestson/django_poll.git
 ```
 
+## Install required packages
+
+Note that this project was completed on Debian Linux. Install the required packages.
+```
+$ sudo apt-get install python3-venv
+$ sudo apt-get install libpg-dev (if using PostgreSQL)
+```
+
 ## Create Python virtual environment
 
 Install venv and initialize the Python virtual environment.
 ```
-$ sudo apt-get install python3-venv
 $ mkdir ~/.venv
 $ python3 -m venv ~/.venv/django_poll
 $ source ~/.venv/django_poll/bin/activate
