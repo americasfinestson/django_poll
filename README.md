@@ -170,6 +170,19 @@ Migrations are beneficial because they allow a project's database to be updated 
 
 The two migration commands are separated because migrations are designed to be commited to VCS and shipped with the project.
 
+# The Django admin interface
+
+Django ships with an admin interface, making it easy for site admins to manage content, users, groups, and many other admin-related tasks. An admin user can be created by running:
+
+```
+$ python3 manage.py createsuperuser
+```
+
+By default, the Django admin is accessible at ```http://localhost:8000/admin/```. Apps must be added manually to the admin.
+
+## Add the ```poll``` app to the Django admin
+
+Open ```polls/admin.py``` and add the appropriate content to register with the Django admin.
 
 # Reference
 The following resources were used in creating this README:
