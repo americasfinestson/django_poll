@@ -134,6 +134,42 @@ In Django, models are essentially the layout of the database. For the polling ap
 
 Edit ```polls/models.py``` and add a class for both ```Question``` and ```Choice```. Both classes have a number of class variables, which each represent a database field in the model.
 
+## Include ```polls``` app in project
+
+Now that the databse is configured, include the ```polls``` app in the overaching project. To do this, open ```django_poll/settings.py```, and in the ```INSTALLED_APPS``` list, add ```polls.apps.PollsConfig```.
+
+## Update database
+
+Since changes were made to the models, Django needs to store these changes as a "migration". Migrations are human-readable files that provide a paper trail of changes made to models. These migrations are stored under ```/polls/migrations/```. Run the following command to inform Django that changes have been made to the models, and that the changes need to be saved as a migration.
+
+```
+$ python3 manage.py makemigrations polls
+```
+
+The above command will create a migration under ```polls/migrations/0001_initial.py```. To see the output of a SQL migration without actually applying the change, run the following command:
+
+```
+$ python3 manage.py sqlmigrate polls 0001
+```
+
+There are some key things to note here in regards to the out put of the above command:
+* The SQL output will vary based on the type of databse being used
+* Table names are automatically generated using the naming convention ```app_model``` (e.g. ```polls_question```)
+* The ```python3 manage.py check``` command can be used to check your project for any problems without making any migrations or modifying the database in any way.
+
+To apply the migrations, run the following command:
+
+```
+$ python3 manage.py migrate
+```
+
+Migrations are beneficial because they allow a project's database to be updated over time, without needing to delete the database and/or tables and start fresh. Migrations can be used to update a database live. To summarize, there are three primary steps when making model changes:
+* Update ```models.py``` with the required changes
+* Run ```python3 manage.py makemigrations``` to create migrations for the changes
+* Run ```python3 manage.py migrate``` to apply those migrations
+
+The two migration commands are separated because migrations are designed to be commited to VCS and shipped with the project.
+
 
 # Reference
 The following resources were used in creating this README:
