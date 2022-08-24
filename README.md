@@ -114,7 +114,28 @@ The Django project as a whole will not be aware of the ```polls``` application's
 
 Now, start the server and access the new view by navigating to ```http://localhost:8000/polls/```.
 
-## Reference
+## Database setup
+
+By default, Django uses SQLite - a lightweight database that is included with Python. SQLite is easy to use and takes little time to get up and running, but is not well-suited for productions. In production, a more scalable database like PostgreSQL should be used. Update ```django_poll/settings.py``` with the appropriate information in the ```DATABASES['default']``` section.
+
+Tables within the database must be created before they can be accessed.
+
+```
+$ python3 manage.py migrate
+```
+
+The ```migrate``` command looks at the ```INSTALLED_APPS``` setting in ```django_poll/settings.py``` and creates any necessary database tables, as well as any database migrations shipped with any of the apps in the project. A message will appear for each migration that is applied. 
+
+## Create a model for the polling application
+
+In Django, models are essentially the layout of the database. For the polling app, two models will be created:
+* ```Question```: The question of the poll, and its publication date
+* ```Choice```: The text of the choice and a vote tally. Each ```Choice``` is associated with a ```Question```.
+
+Edit ```polls/models.py``` and add a class for both ```Question``` and ```Choice```. Both classes have a number of class variables, which each represent a database field in the model.
+
+
+# Reference
 The following resources were used in creating this README:
 * https://www.zappycode.com/tutorials/keep-secrets-secret-how-to-hide-sensitive-data-in-django
 * https://docs.djangoproject.com/en/4.1/intro/
