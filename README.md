@@ -78,7 +78,41 @@ DATABASES = {
 The old ```SECRET_KEY``` line can (should) now be removed from ```settings.py```.
 
 ## Exclude new secrets file from VCS
+
 Exclude ```secrets.json``` from VCS, whether that be via a ```.gitignore``` file, or other means.
+
+# Creating Django Project
+
+## Verify server runs
+
+Run the following command:
+```
+$ python3 manage.py runserver
+```
+
+Open a web browser and navigate to ```http://localhost:8000```. Verify the default Django welcome page appears.
+
+## Create app for polling
+
+The base Django environment/project has been established. Django comes with a built-in utility for creating the basic directory structure for a new application in the project. Run the following command to create an app called ```polls```:
+
+```
+$ python3 manage.py startapp polls
+```
+
+## Create view for polls app
+
+Django "views" are Python functions that receive HTTP requests from clients and return an HTTP response. A full Django web page uses various views that all serve a distince purpose. Views are placed in ```/path/to/app/views.py```. Open ```polls/views.py``` and add the appropriate content.
+
+## Create URL mapping for new view
+
+In order for the view created in the previous section to be of use, the view must be mapped to a URL. Each app has its own ```/path/to/app/urls.py``` that maps views to URLs. Create ```polls/urls.py``` and add the appropriate content.
+
+## Incorporate ```polls/urls.py``` into overall project URL mapping
+
+The Django project as a whole will not be aware of the ```polls``` application's URLs by default. Open ```django_poll/urls.py``` and add the appropriate content to make the overarching project aware of the URLS of the ```polls``` application.
+
+Now, start the server and access the new view by navigating to ```http://localhost:8000/polls/```.
 
 ## Reference
 The following resources were used in creating this README:
