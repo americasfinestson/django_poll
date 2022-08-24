@@ -102,7 +102,7 @@ $ python3 manage.py startapp polls
 
 ## Create view for polls app
 
-Django "views" are Python functions that receive HTTP requests from clients and return an HTTP response. A full Django web page uses various views that all serve a distince purpose. Views are placed in ```/path/to/app/views.py```. Open ```polls/views.py``` and add the appropriate content.
+Django "views" are Python functions that receive HTTP requests from clients and return an HTTP response. A full Django web page uses various views that all serve a distinct purpose. Views are placed in ```/path/to/app/views.py```. Open ```polls/views.py``` and add the appropriate content.
 
 ## Create URL mapping for new view
 
